@@ -28,39 +28,39 @@
   </form>
 </div>
 <div class="container" id="content">
-  <nav role="navigation" class="primary-navigation">
-    <ul>
-      <li id="hamburger">
-        <i class="fa-solid fa-bars" style="color: #000000;"></i>
-      </li>
-      <li>
-        <a href="admin-dashboard.php">
-          <i class="fa-solid fa-table-columns" style="color: #000000;"></i>
-          <p>Dashboard</p>
-        </a>
-      </li>
-      <li>
-        <a href="admin-assets.php">
-          <i class="fa-solid fa-computer" style="color: #000000;"></i>
-          <p>Assets</p>
-        </a>
-      </li>
-      <li>
-        <a href="admin-accounts.php">
-          <i class="fa-solid fa-users" style="color: #000000;"></i>
-          <p>Accounts</p>
-        </a>
-      </li>
-      <ul>
-        <li>
-          <a href="#">
-            <i class="fa-solid fa-right-from-bracket" style="color: #000000;"></i>
-            <p>Log out</p>
-          </a>
-        </li>
-      </ul>
-    </ul>
-  </nav>
+<nav role="navigation" class="primary-navigation">
+                    <ul>
+                        <li id="hamburger">
+                        <i class="fa-solid fa-bars" style="color: #000000;"></i>
+                        </li>
+                        <ul>
+                            <li>
+                                <a href="admin-dashboard.php">
+                                <i class="fa-solid fa-table-columns"  style="color: #000000;"></i>
+                                    <p>Dashboard</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="admin-assets.php">
+                                    <i class="fa-solid fa-computer" style="color: #000000;"></i>
+                                    <p>Assets</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="admin-accounts.php">
+                                    <i class="fa-solid fa-users" style="color: #000000;"></i>
+                                    <p>Accounts</p>
+                                </a>
+                            </li>
+                        </ul>
+                            <li class="logout">
+                                <a href="logout.php">
+                                 <i class="fa-solid fa-right-from-bracket"  style="color: #000000;"></i>
+                                <p>Log out</p>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
   <div class="content">
     <a href="admin-assets.php"><h2>Assets</h2></a>
     <div class="btns">
@@ -76,25 +76,25 @@
     </div>
     <div id="default-table" class="assets">
               <table>
-                <tr>
-                  <th>Employee ID</th>
-                  <th>Asset ID</th>
-                  <th>Serial No</th>
-                  <th>Type</th>
-                  <th>Date Purchased</th>
-                  <th>Warranty</th>
-                  <th>Status</th>
-                  <th>Action</th>
-                </tr>
-                <tr>
-                <td>101</td><td>A001</td><td>S1234</td><td>Laptop</td><td>2023-05-15</td><td>2 years</td><td>Active</td><td><button><i class="fa-solid fa-pen-to-square"></i></button></td>
-                </tr>
-                <tr>
-                  <td>102</td><td>A002</td><td>S5678</td><td>Monitor</td><td>2022-12-20</td><td>1 year</td><td>Inactive</td><td><button><i class="fa-solid fa-pen-to-square"></i></button></td>
-                </tr>
-                <tr>
-                  <td>103</td><td>A003</td><td>S9012</td><td>Keyboard</td><td>2023-08-10</td><td>1 year</td><td>Active</td><td><button><i class="fa-solid fa-pen-to-square"></i></button></td>
-                </tr>
+                  <tr>
+                    <th>Employee ID</th>
+                    <th>Asset ID</th>
+                    <th>Serial No</th>
+                    <th>Type</th>
+                    <th>Date Purchased</th>
+                    <th>Warranty</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                  </tr>
+                  <tr>
+                  <td>101</td><td>A001</td><td>S1234</td><td>Laptop</td><td>2023-05-15</td><td>2 years</td><td>Active</td><td><button><i class="fa-solid fa-pen-to-square"></i></button></td>
+                  </tr>
+                  <tr>
+                    <td>102</td><td>A002</td><td>S5678</td><td>Monitor</td><td>2022-12-20</td><td>1 year</td><td>Inactive</td><td><button><i class="fa-solid fa-pen-to-square"></i></button></td>
+                  </tr>
+                  <tr>
+                    <td>103</td><td>A003</td><td>S9012</td><td>Keyboard</td><td>2023-08-10</td><td>1 year</td><td>Active</td><td><button><i class="fa-solid fa-pen-to-square"></i></button></td>
+                  </tr>
               </table>
             </div>
     <div id="brands-table" class="assets" style="display: none;">
