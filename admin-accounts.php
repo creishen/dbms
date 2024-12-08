@@ -21,8 +21,6 @@
 <div class="popup" id="add-asset-popup">
   <div class="popup-header">Add New Account</div>
   <form id="add-account-form">
-    <input type="text" id="username" name="username" placeholder="Username" required>
-    <input type="password" id="password" name="password" placeholder="Password" required>
     <input type="text" id="bCode" name="bCode" placeholder="Branch Code" required>
     <input type="text" id="eID" name="eID" placeholder="Employee ID" required>
     <input type="text" id="position" name="position" placeholder="Position" required>
@@ -36,38 +34,38 @@
     </div>
   </form>
 </div>
-  <div class="container">
+<div class="container">
   <nav role="navigation" class="primary-navigation">
                     <ul>
                         <li id="hamburger">
-                        <i class="fa-solid fa-bars" style="color: #000000;"></i>
-                        </li>
-                        <li>
-                            <a href="admin-dashboard.php">
-                            <i class="fa-solid fa-table-columns" style="color: #000000;"></i>
-                                <p>Dashboard</p>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="admin-assets.php">
-                                <i class="fa-solid fa-computer" style="color: #000000;"></i>
-                                <p>Assets</p>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="admin-accounts.php">
-                                <i class="fa-solid fa-users" style="color: #000000;"></i>
-                                <p>Accounts</p>
-                            </a>
+                          <i class="fa-solid fa-bars" style="color: #000000;"></i>
                         </li>
                         <ul>
                             <li>
-                                <a href="#">
-                                    <i class="fa-solid fa-right-from-bracket" style="color: #000000;"></i>
-                                    <p>Log out</p>
+                                <a href="admin-dashboard.php">
+                                <i class="fa-solid fa-table-columns"  style="color: #000000;"></i>
+                                    <p>Dashboard</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="admin-assets.php">
+                                    <i class="fa-solid fa-computer" style="color: #000000;"></i>
+                                    <p>Assets</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="admin-accounts.php">
+                                    <i class="fa-solid fa-users" style="color: #000000;"></i>
+                                    <p>Accounts</p>
                                 </a>
                             </li>
                         </ul>
+                            <li class="logout">
+                                <a href="logout.php">
+                                 <i class="fa-solid fa-right-from-bracket"  style="color: #000000;"></i>
+                                <p>Log out</p>
+                            </a>
+                        </li>
                     </ul>
                 </nav>
         <div class="content">
@@ -138,7 +136,7 @@
     const overlay = $("#popup-overlay");
 
     // Show popup
-    $("#asset-btn").click(function () {
+    $(".asset-td").click(function () {
       overlay.show();
       popup.fadeIn(300);
     });
