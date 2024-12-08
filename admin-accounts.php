@@ -81,9 +81,52 @@
                      </div>
                 </div>
                  <div class="accounts">
-                        <table>
-                            <tr><th>Branch Code</th><th>ID</th><th>Last Name</th><th>First Name</th><th>Middle Name</th><th>Position</th><th>Department</th><th>Status</th><th>Action</th></tr>
-                        </table>
+                 <table>
+                    <tr>
+                        <th>Branch Code</th>
+                        <th>ID</th>
+                        <th>Last Name</th>
+                        <th>First Name</th>
+                        <th>Middle Name</th>
+                        <th>Position</th>
+                        <th>Department</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                    <tr>
+                        <td>001</td>
+                        <td>101</td>
+                        <td>Smith</td>
+                        <td>John</td>
+                        <td>Albert</td>
+                        <td>Manager</td>
+                        <td>Operations</td>
+                        <td>Active</td>
+                        <td><button><i class="fa-solid fa-eye"></i></button></td>
+                    </tr>
+                    <tr>
+                        <td>002</td>
+                        <td>102</td>
+                        <td>Doe</td>
+                        <td>Jane</td>
+                        <td>Marie</td>
+                        <td>Supervisor</td>
+                        <td>Logistics</td>
+                        <td>Inactive</td>
+                        <td><button><i class="fa-solid fa-eye"></i></button></td>
+                    </tr>
+                    <tr>
+                        <td>003</td>
+                        <td>103</td>
+                        <td>Johnson</td>
+                        <td>Michael</td>
+                        <td>Lee</td>
+                        <td>Technician</td>
+                        <td>Maintenance</td>
+                        <td>Active</td>
+                        <td><button><i class="fa-solid fa-pen-to-square"></i></button></td>
+                    </tr>
+                </table>
                    </div>
             </div>  
         </div>
@@ -127,6 +170,7 @@
       popup.fadeOut(300);
       overlay.hide();
     });
+    
   });
 
     $(document).ready(function() {
