@@ -10,9 +10,9 @@
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
-<!-- <div class="loading-screen" id="loading-screen">
+<div class="loading-screen" id="loading-screen">
   <i class="fa-solid fa-gear loading-icon"></i>
-</div> -->
+</div>
 <div class="popup-overlay" id="popup-overlay"></div>
 <div class="popup" id="add-asset-popup">
   <div class="popup-header">Add New Asset</div>
@@ -86,21 +86,48 @@
                   <th>Status</th>
                   <th>Action</th>
                 </tr>
+                <tr>
+                <td>101</td><td>A001</td><td>S1234</td><td>Laptop</td><td>2023-05-15</td><td>2 years</td><td>Active</td><td><button><i class="fa-solid fa-pen-to-square"></i></button></td>
+                </tr>
+                <tr>
+                  <td>102</td><td>A002</td><td>S5678</td><td>Monitor</td><td>2022-12-20</td><td>1 year</td><td>Inactive</td><td><button><i class="fa-solid fa-pen-to-square"></i></button></td>
+                </tr>
+                <tr>
+                  <td>103</td><td>A003</td><td>S9012</td><td>Keyboard</td><td>2023-08-10</td><td>1 year</td><td>Active</td><td><button><i class="fa-solid fa-pen-to-square"></i></button></td>
+                </tr>
               </table>
             </div>
     <div id="brands-table" class="assets" style="display: none;">
-      <table>
-        <tr><th>Asset ID</th><th>Brand</th><th>Model</th><th>Quantity</th><th>Actions</th></tr>
-        <!-- Dynamic rows will be added here -->
-      </table>
+          <table>
+            <tr>
+              <th>Asset ID</th><th>Brand</th><th>Model</th><th>Quantity</th><th>Actions</th>
+            </tr>
+            <tr>
+              <td>A001</td><td>Dell</td><td>XPS 13</td><td>5</td><td><button><i class="fa-solid fa-pen-to-square"></i></button><button><i class="fa-solid fa-trash"></i></button></td>
+            </tr>
+            <tr>
+              <td>A002</td><td>Samsung</td><td>Odyssey G7</td><td>3</td><td><button><i class="fa-solid fa-pen-to-square"></i></button><button><i class="fa-solid fa-trash"></i></button></td>
+            </tr>
+            <tr>
+              <td>A003</td><td>Logitech</td><td>K780</td><td>10</td><td><button><i class="fa-solid fa-pen-to-square"></i></button><button><i class="fa-solid fa-trash"></i></button></td>
+            </tr>
+          </table>
     </div>
 
     <div id="transactions-table" class="assets" style="display: none;">
       <table>
-        <tr><th>Employee ID</th><th>Asset ID</th><th>Serial No</th><th>Date Acquired</th><th>Date Returned</th><th>Actions</th></tr>
-        <tr>
-          <td>101</td><td>A001</td><td>S1234</td><td>2023-10-01</td><td>N/A</td>
-        </tr>
+          <tr>
+            <th>Employee ID</th><th>Asset ID</th><th>Serial No</th><th>Date Acquired</th><th>Date Returned</th><th>Actions</th>
+          </tr>
+          <tr>
+            <td>101</td><td>A001</td><td>S1234</td><td>2023-10-01</td><td>N/A</td><td><button><i class="fa-solid fa-box-archive"></i></button></td>
+          </tr>
+          <tr>
+            <td>102</td><td>A002</td><td>S5678</td><td>2023-06-05</td><td>2023-12-01</td><td><button><i class="fa-solid fa-box-open"></i></button></td>
+          </tr>
+          <tr>
+            <td>103</td><td>A003</td><td>S9012</td><td>2023-08-10</td><td>N/A</td><td><button><i class="fa-solid fa-box-archive"></i></button></td>
+          </tr>
       </table>
     </div>
     <div id="asset-transfer-table" class="assets" style="display: none;">
@@ -234,32 +261,12 @@
     });
   });
 
-//     // Hide popup when overlay is clicked
-//     overlay.click(function () {
-//       popup.fadeOut(300);
-//       overlay.hide();
-//     });
-
-//     $(document).ready(() => {
-//   // Show content after loading screen
-//   setTimeout(() => {
-//     $('#loading-screen').fadeOut();
-//     $('#content').fadeIn();
-//   }, 1000);
-
-//   // Navigation toggle
-//   $('#hamburger').on('click', () => {
-//     $('.primary-navigation').toggleClass('expanded');
-//   });
-
-//   // Button actions
-//   $('#brands-btn').on('click', () => toggleTable('#brands-table'));
-//   $('#transactions-btn').on('click', () => toggleTable('#transactions-table'));
-
-//   function toggleTable(tableId) {
-//     $('.assets').hide(); // Hide all tables
-//     $(tableId).fadeIn(); // Show the selected table
-//   }
-// });
+    $(document).ready(() => {
+  // Show content after loading screen
+  setTimeout(() => {
+    $('#loading-screen').fadeOut();
+    $('#content').fadeIn();
+  }, 300);
+});
 
 </script>
