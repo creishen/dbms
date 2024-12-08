@@ -10,9 +10,8 @@ body {
   }
 
 .container {
-    display: flex;
-    align-content: center;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: 10% 90%;
     width: 100vw;
     height: 100vh;
 
@@ -167,93 +166,99 @@ body {
     }
 }
 
+
 .nav,
 .primary-navigation {
     display: block;
+    text-align: center;
+    grid-column: 1;
     list-style: none;
-    width: 4.5rem;
-    height: 100vh;
+    width: 30%;
+    min-width: 4rem;
     background-color: #D9DADA;
     transition: all 0.5s ease;
     margin: 0;
-    padding: 0;
+    z-index: 1000;
 
     ul {
         height: 100vh;
         display: flex;
         flex-direction: column;
-        margin: 0;
-        padding: 0;
         list-style: none;
         overflow: hidden;
-        transition: all 0.5s ease;
+        justify-content: space-between;
+
+        .logout{
+          margin: 0 0 1rem 0;
+        }
+    }
+    ul li {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    ul li i {
+      font-size: 1.5rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
 
     ul ul{
-        height: 8rem;
-        display: flex;
-        margin-top: 4rem;
+        height: 20%;
     }
-    ul li {
-        margin: auto 0 auto 0;
+
+    #hamburger{
+      margin-top: 1rem;
+      text-align: center;
+
+      h2 {
+        visibility: hidden;
+        color: rgb(0, 0, 0);
+      }
     }
+
     li a, li i {
         color: rgb(255, 255, 255);
         text-decoration: none;
-        text-align: center;
     }
 
     li:hover {
         cursor: pointer;
         opacity: 0.6;
     }
-
-    ul li p, ul li i {
-        margin: 0 0 0 1.5rem;
-        padding: 0;
-        transition: all 0.5s ease;
-    }
-
-    ul li a {
-        display: flex; 
-        align-items: center; 
-        gap: 0.5rem;
-    }
-
+    
     ul li p {
         visibility: hidden;
         color: rgb(0, 0, 0);
-        font-size: 0;
-    }
-    ul li i {
-        font-size: 1.5rem;
+        font-size: 1rem;
+        margin-left: 0.2rem;
     }
 }
 
 .nav, .primary-navigation:hover {
-    width: 15rem;
-    transition: all 0.2s ease;
+    width: 100%;
+    transition: all 0.5s ease-in-out;
 
-    ul li p {
-        visibility: visible;
-        font-size: 1rem;
+    ul ul{
+      height: 30%;
     }
-    #hamburger{
-        transform: translateX(70%);
-        transition: all 0.5s ease;
 
-        img{
-            filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.2));
-        }
+    ul li p, ul li h2 {
+        visibility: visible;
     }
 }
       
   .top-content {
     display: grid;
+    grid-column: 2;
     margin: 0;
+    height: 100vh;
     width: 100%;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 3rem auto auto;
+    grid-template-columns: 30% 70%;
+    grid-template-rows: 10% 45% 45%;
+    overflow: scroll;
         a{
             text-decoration: none;
             color: black;
@@ -269,6 +274,60 @@ body {
             height: 0;
             border-radius: 0;
         }
+        .assets table, .accounts table, .history table {
+          margin-top: 0; /* Ensure no extra margin at the top */
+          vertical-align: baseline; /* Align to the baseline of the container */
+          border-collapse: collapse; /* Consistent spacing between rows/columns */
+      }
+        .assets{
+          grid-column: 1;
+          grid-row: 2;
+          width: 1fr;
+          overflow: auto;
+          display: flex;
+          justify-content: flex-start;
+
+          table {
+            width: 100%;
+          }
+        }
+
+        .accounts {
+          position: relative;
+          grid-column: 1;
+          grid-row: 3;
+          overflow: auto;
+          width: 1fr;
+          display: flex;
+          justify-content: flex-start;
+
+          table {
+            width: 100%;
+          }
+
+          .history {
+            grid-column: 2;
+            grid-row: 3/-3;
+            height: 100%;
+            overflow: auto;
+            width: 1fr;
+            text-align: center;
+            display: flex;
+            justify-content: flex-start;
+
+
+            table {
+              width: 100%;
+
+              td{
+                font-size: 1rem;
+              }
+            }
+
+          }
+        }
+
+        
   }
 
   .content {
@@ -353,7 +412,6 @@ body {
     margin: 1rem;
     grid-column: 1; 
     flex-direction: column;
-    height: fit-content;
     display: flex;
     justify-content: space-around;
     align-content: center;
@@ -369,7 +427,7 @@ body {
     }
     td{
         background-color: white;
-        font-size: 0.8rem;
+        font-size: 1rem;
     }
     th {
         padding: 0.5rem 2rem 0.5rem 2rem;
@@ -394,15 +452,13 @@ body {
 
 
 .history {
-    grid-column: 2;
-    grid-row: 3/-3;
     width: 100%;
     height: fit-content;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-content: center;
-
+    text-align: center;
     table{
         border-collapse: collapse;
         width: 70%;
@@ -414,6 +470,7 @@ body {
         }
     td{
         background-color: white;
+        font-size: 1rem;
     }
     th {
         padding: 0.5rem 2rem 0.5rem 2rem;
@@ -582,3 +639,27 @@ body {
         padding-bottom: 4rem; /* Ensure enough space below for the button */
       }
       
+      .dropdown-container {
+        position: relative;
+      }
+      .dropdown-button {
+          background: none;
+          border: none;
+          font-size: 1rem;
+          cursor: pointer;
+      }
+      .dropdown-list {
+          display: none;
+          background-color: #f9f9f9;
+          border: none;
+          margin-top: 5px;
+          padding: 5px;
+          list-style-type: none;
+      }
+      .dropdown-list li {
+          padding: 5px 10px;
+          cursor: pointer;
+      }
+      .dropdown-list li:hover {
+          background-color: #ddd;
+      }
