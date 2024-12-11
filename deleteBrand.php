@@ -11,13 +11,13 @@ if (!isset($_SESSION['ID']) || $_SESSION['stat'] === "inactive") {
 
 $ID = $_SESSION['ID'];
 
-if (isset($_GET["asset_ID"])) {
-    $asset_ID = $_GET["asset_ID"];
+if (isset($_GET["asset_id"])) {
+    $asset_id = $_GET["asset_id"];
 
     //Check if there are any related assets/hardware in the assets table
-    $checkSql = "SELECT COUNT(*) FROM assets_details WHERE asset_ID = ?";
+    $checkSql = "SELECT COUNT(*) FROM assets_details WHERE asset_id = ?";
     $stmt = $connection->prepare($checkSql);
-    $stmt->bind_param("s", $asset_ID);
+    $stmt->bind_param("s", $asset_id);
     $stmt->execute();
     $stmt->bind_result($count);
     $stmt->fetch();
@@ -25,9 +25,9 @@ if (isset($_GET["asset_ID"])) {
     //If no related assets, proceed with the deletion
     if ($count == 0) {
         // No related assets, safe to delete the brand
-        $deleteSql = "DELETE FROM brands WHERE asset_ID = ?";
+        $deleteSql = "DELETE FROM brands WHERE asset_id = ?";
         $deleteStmt = $connection->prepare($deleteSql);
-        $deleteStmt->bind_param("s", $asset_ID);
+        $deleteStmt->bind_param("s", $asset_id);
         if ($deleteStmt->execute()) {
             echo "<script>alert ('Brand Deleted!'); window.location.href = '/admin/serviceFunc.php'</script>";//change loc latur
         } else {
