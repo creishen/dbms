@@ -1,14 +1,19 @@
 <?php
-$servername = "localhost:3307";
+$servername = "localhost";
 $username = "root";
 $password = "";
-$database = "it_inventory";
+$database = "IT_INVENTORY";
 
-$connection = mysqli_connect($servername, $username, $password, $database);
+try {
+    $connection = mysqli_connect('127.0.0.1', $username, $password, $database);
 
-if (!$connection) {
-    die("Failed to connect to MySQL: " . mysqli_connect_error());
-    echo"connection fail";
+    if ($connection->connect_error) {
+        throw new Exception("Connection failed: " . $connection->connect_error);
+    }
+} catch (Exception $e) {
+    error_log($e->getMessage());
+    http_response_code(500);
+    echo json_encode(['error' => 'Database connection failed.']);
+    exit;
 }
-else echo"connected";
 ?>
