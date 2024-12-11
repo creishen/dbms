@@ -2,8 +2,7 @@
 session_start();
 require('config.php');
 
-$successMessage = "";
-$errorMessage = "";
+$message="";
 
 // Fetch initially all the branch
 $sql = $connection->prepare("SELECT * FROM branches");
@@ -22,9 +21,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         // Basic validation
         if (!preg_match("/^[a-zA-Z0-9]+$/",$branch_code)) {
-            $errorMessage = "Branch code must be alphanumeric(letters and numbers only)!";
+            $message = "Branch code must be alphanumeric(letters and numbers only)!";
         }else if(empty($branch_name)){
-            $errorMessage = "Branch name cannot be empty.";
+            $message = "Branch name cannot be empty.";
         }else {
             // Check if the branch_code already exists
             $checkStmt = $connection->prepare("SELECT COUNT(*) FROM branch WHERE branch = ?");
@@ -34,16 +33,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $checkStmt->fetch();
             
             if ($count > 0) {
-                $errorMessage = "Branch code already exists!";
+                $message = "Branch code already exists!";
             } else {
                 // Proceed to inserting the new company
                 $stmt = $connection->prepare("INSERT INTO branches(branch_code, branch_name, city, company_code) VALUES (?, ?, ?, ?)");
                 $stmt->bind_param("ssss", $branch_code, $branch_name, $city, $company_code);
                 
                 if ($stmt->execute()) {
-                    $successMessage = "Branch added successfully!";
+                    $message = "Branch added successfully!";
                 } else {
-                    $errorMessage = "Unable to add new branch! Please try again later.";
+                    $message = "Unable to add new branch! Please try again later.";
                     // Logging the actual error for debugging
                     error_log("Error executing query: " . $stmt->error);
                 }
