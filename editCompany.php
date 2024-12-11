@@ -5,7 +5,7 @@ require("config.php");
 // Check if the user is logged in and has admin privileges
 if (!isset($_SESSION['ID']) || $_SESSION['stat'] === "inactive") {
     // Handle the case where user id is not set in the session
-    header("Location: /admin/main.php");
+    header("Location: login.php");
     die("User not logged in");
 }
 
@@ -25,7 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
         $found = $result->fetch_assoc();
 
         if (!$found) {
-            header("location: /admin/staff.php");
+            header("location: /admin-dashboard.php");
             exit;
         }
 
@@ -49,7 +49,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 	  
 	         // Execute the statement
 	         if ($stmt->execute()) {
-	             echo "<script>alert ('Company updated successfully!'); window.location.href = '/admin/staff.php'</script>";
+	             echo "<script>alert ('Company updated successfully!'); window.location.href = '/admin-assset.php'</script>";
 	        } else {
 	               $errorMessage = "Invalid query: " . $connection->error;
 	           }
