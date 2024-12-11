@@ -1,0 +1,66 @@
+Error [2]: Undefined variable $connection in /Users/nat/Downloads/School/dbms/admin-assets.php on line 291
+Error [2]: Undefined variable $errorMessage in /Users/nat/Downloads/School/dbms/admin-accounts.php on line 28
+Error [2]: Undefined variable $errorMessage in /Users/nat/Downloads/School/dbms/admin-accounts.php on line 28
+Error [2]: Undefined variable $connection in /Users/nat/Downloads/School/dbms/config.php on line 2
+Error [2]: Undefined array key "ID" in /Users/nat/Downloads/School/dbms/login.php on line 49
+Error [2]: Undefined array key "password" in /Users/nat/Downloads/School/dbms/admin-dashboard.php on line 21
+Error [2]: Undefined array key "status" in /Users/nat/Downloads/School/dbms/admin-accounts.php on line 196
+Error [2]: Undefined array key "username" in /Users/nat/Downloads/School/dbms/admin-accounts.php on line 237
+Tables loaded successfully.
+Tables loaded successfully.
+Tables loaded successfully.
+Tables loaded successfully.
+Tables loaded successfully.
+Tables loaded successfully.
+Tables loaded successfully.
+Tables loaded successfully.
+Tables loaded successfully.
+Tables loaded successfully.
+Tables loaded successfully.
+Tables loaded successfully.
+Tables loaded successfully.
+Tables loaded successfully.
+Tables loaded successfully.
+Error [2]: Undefined array key "employee_id" in /Users/nat/Downloads/School/dbms/admin-accounts.php on line 95
+Error [2]: Undefined array key "employee_id" in /Users/nat/Downloads/School/dbms/admin-accounts.php on line 95
+Error [2]: Undefined array key "employee_id" in /Users/nat/Downloads/School/dbms/admin-accounts.php on line 95
+Error [2]: Undefined array key "employee_id" in /Users/nat/Downloads/School/dbms/admin-accounts.php on line 95
+Tables loaded successfully.
+Tables loaded successfully.
+Tables loaded successfully.
+Error [2]: Undefined array key "employee_id" in /Users/nat/Downloads/School/dbms/admin-accounts.php on line 95
+Error [2]: Undefined array key "employee_id" in /Users/nat/Downloads/School/dbms/admin-accounts.php on line 95
+Tables loaded successfully.
+Tables loaded successfully.
+Tables loaded successfully.
+Error [2]: Undefined array key "employee_id" in /Users/nat/Downloads/School/dbms/admin-accounts.php on line 95
+Error [2]: Undefined array key "employee_id" in /Users/nat/Downloads/School/dbms/admin-accounts.php on line 95
+Error [2]: Undefined array key "employee_id" in /Users/nat/Downloads/School/dbms/admin-accounts.php on line 95
+Error [2]: Undefined array key "employee_id" in /Users/nat/Downloads/School/dbms/admin-accounts.php on line 97
+Error [2]: Undefined array key "employee_id" in /Users/nat/Downloads/School/dbms/admin-accounts.php on line 97
+Error [2]: Undefined array key "employee_id" in /Users/nat/Downloads/School/dbms/admin-accounts.php on line 97
+Tables loaded successfully.
+Tables loaded successfully.
+Tables loaded successfully.
+Tables loaded successfully.
+Tables loaded successfully.
+Tables loaded successfully.
+Tables loaded successfully.
+Tables loaded successfully.
+Tables loaded successfully.
+Tables loaded successfully.
+Tables loaded successfully.
+Tables loaded successfully.
+Tables loaded successfully.
+Tables loaded successfully.
+Tables loaded successfully.
+[2024-12-11 01:07:11] No such file or directory
+[2024-12-11 01:11:08] No such file or directory
+[2024-12-11 01:13:59] Error [2]: Undefined variable $port in /Users/nat/Downloads/School/dbms/config.php on line 24
+[2024-12-11 01:14:21] No such file or directory
+[2024-12-11 01:14:50] No such file or directory
+[2024-12-11 01:14:55] No such file or directory
+Error [2]: Undefined variable $connection in /Users/nat/Downloads/School/dbms/login.php on line 37
+Tables loaded successfully.
+Tables loaded successfully.
+Tables loaded successfully.
