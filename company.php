@@ -2,8 +2,7 @@
 session_start();
 require('config.php');
 
-$successMessage = "";
-$errorMessage = "";
+$message="";
 
 // Fetch initially all the company
 $sql = $connection->prepare("SELECT * FROM company");
@@ -19,9 +18,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         // Basic validation
         if (!preg_match("/^[a-zA-Z0-9]+$/",$company_code)) {
-            $errorMessage = "Company code must be alphanumeric(letters and numbers only)!";
+            $message = "Company code must be alphanumeric(letters and numbers only)!";
         }else if(empty($company_name)){
-            $errorMessage = "Company name cannot be empty.";
+            $message = "Company name cannot be empty.";
         }else {
             // Check if the company_code already exists
             $checkStmt = $connection->prepare("SELECT COUNT(*) FROM company WHERE company_code = ?");
@@ -31,16 +30,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $checkStmt->fetch();
             
             if ($count > 0) {
-                $errorMessage = "Company code already exists!";
+                $message = "Company code already exists!";
             } else {
                 // Proceed to inserting the new company
                 $stmt = $connection->prepare("INSERT INTO company(company_code, company_name) VALUES (?, ?)");
                 $stmt->bind_param("ss", $company_code, $company_name);
                 
                 if ($stmt->execute()) {
-                    $successMessage = "Company added successfully!";
+                    $message = "Company added successfully!";
                 } else {
-                    $errorMessage = "Unable to add new company! Please try again later.";
+                    $message = "Unable to add new company! Please try again later.";
                     // Logging the actual error for debugging
                     error_log("Error executing query: " . $stmt->error);
                 }
