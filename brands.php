@@ -2,8 +2,7 @@
 session_start();
 require('config.php');
 
-$successMessage = "";
-$errorMessage = "";
+$message = "";
 
 // Fetch initially all the brands
 $sql = $connection->prepare("SELECT * FROM brands");
@@ -12,17 +11,18 @@ $result = $sql->get_result();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Add new brand
-    if (isset($_POST["asset_ID"]) && isset($_POST["brand"]) && isset($_POST["model"]) && !empty($_POST["asset_ID"]) && !empty($_POST["brand"]) && !empty($_POST["model"])) {
+    if (isset($_POST["asset_ID"]) && isset($_POST["brand"]) && isset($_POST["model"])&& isset($_POST["quantity"]) && !empty($_POST["asset_ID"]) && !empty($_POST["brand"]) && !empty($_POST["model"])&& !empty($_POST["quantity"])) {
         
         $asset_ID = trim($_POST["asset_ID"]);
         $brand = trim($_POST["brand"]);
         $model = trim($_POST["model"]);
+        $quantity = trim($_POST["quantity"]);
 
         // Basic validation
         if (!preg_match("/^[a-zA-Z0-9]+$/",$asset_ID)) {
             $errorMessage = "Asset ID must be alphanumeric(letters and numbers only)!";
         }else if(empty($brand) || empty ($model)){
-            $errorMessage = "Brand and model cannot be empty.";
+            $message = "Brand and model cannot be empty.";
         }else {
             // Check if the asset_ID already exists
             $checkStmt = $connection->prepare("SELECT COUNT(*) FROM brands WHERE asset_ID = ?");
@@ -32,16 +32,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $checkStmt->fetch();
             
             if ($count > 0) {
-                $errorMessage = "Asset ID already exists!";
+                $message = "Asset ID already exists!";
             } else {
                 // Proceed to insert the new brand
                 $stmt = $connection->prepare("INSERT INTO brands(asset_ID, brand, model) VALUES (?, ?, ?)");
-                $stmt->bind_param("sss", $asset_ID, $brand, $model);
+                $stmt->bind_param("sssi", $asset_ID, $brand, $model, $quantity);
                 
                 if ($stmt->execute()) {
-                    $successMessage = "Brand added successfully!";
+                    $message = "Brand added successfully!";
                 } else {
-                    $errorMessage = "Unable to add new brand! Please try again later.";
+                    $message = "Unable to add new asset! Please try again later.";
                     // Logging the actual error for debugging
                     error_log("Error executing query: " . $stmt->error);
                 }
