@@ -3,23 +3,51 @@
 session_start();
 require("config.php");
 
-// Check if the user is logged in
-if (!isset($_SESSION['ID']) || $_SESSION['stat'] === "inactive") {
-    // Handle the case where user id is not set in the session
-    header("Location: /admin/main.php");
-    die("User not logged in");
-}
-
+$employee_id = null;
+$errorMessage = "";
+$successMessage = "";
+$branch_code = "";
 $lastName = "";
-$firstName = ""; 
-$MI = "";
+$firstName = "";
+$middleName = "";
 $position = "";
 $branch = "";
 $department = "";
-$username = "";
 $password = "";
-$errorMessage = "";
-$successMessage = "";
+
+ini_set('display_errors', 0); // Disable direct display of errors
+ini_set('log_errors', 1); // Enable error logging
+error_reporting(E_ALL); // Report all errors
+
+set_error_handler(function ($errno, $errstr, $errfile, $errline) {
+    $errorMessage = "Error [$errno]: $errstr in $errfile on line $errline";
+    file_put_contents('php_error.log', $errorMessage . PHP_EOL, FILE_APPEND); // Log error to file
+    http_response_code(500); // Set HTTP response status to 500 for error
+    echo json_encode(['error' => $errorMessage]); // Return error as JSON
+    exit;
+});
+
+// Success Logger
+function log_success($message)
+{
+    $timestamp = date('Y-m-d H:i:s');
+    $successMessage = "[$timestamp] SUCCESS: $message";
+    file_put_contents('php_success.log', $successMessage . PHP_EOL, FILE_APPEND);
+}
+
+
+if (!isset($_SESSION['employee_id']) || !isset($_SESSION['stat']) === "inactive") {
+    $errorMessage = "Please log in first!";
+    echo " 
+        <script>
+        alert('$errorMessage');
+            setTimeout(() => {
+              window.location.href = 'login.php';
+              }, 100); // Redirect after # seconds 
+        </script>
+  ";
+    exit;
+  }
 
 if($_SERVER['REQUEST_METHOD'] == 'POST') { // Add account
     // Collect POST data
